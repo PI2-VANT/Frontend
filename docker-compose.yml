@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  frontend:
+    container_name: frontend
+    image: vant_frontend
+    build:
+      context: .
+    volumes:
+      - ./src:/frontend/src
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
