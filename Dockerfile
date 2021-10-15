@@ -1,14 +1,9 @@
 FROM node:14-alpine 
 
-WORKDIR /frontend
+COPY . /code
 
-COPY package.json .
-COPY yarn.lock .
-
-RUN yarn install
-
-COPY . .
+WORKDIR /code
 
 EXPOSE 3000
 
-CMD [ "yarn", "start" ]
+CMD ["sh","-c", "yarn install && yarn start"]

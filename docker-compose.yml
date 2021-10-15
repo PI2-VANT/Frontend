@@ -4,10 +4,9 @@ services:
   frontend:
     container_name: frontend
     image: vant_frontend
-    build:
-      context: .
+    build: .
     volumes:
-      - ./src:/frontend/src
+      - ./:/code
       - /usr/src/app/node_modules
     ports:
       - 3000:3000
