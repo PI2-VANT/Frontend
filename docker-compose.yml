@@ -1,12 +1,19 @@
-version: "3.3"
+version: "3.5"
 
 services:
   frontend:
     container_name: frontend
     image: vant_frontend
     build: .
+    networks:
+      - vant-network
     volumes:
       - ./:/code
       - /usr/src/app/node_modules
     ports:
       - 3000:3000
+
+networks:
+  vant-network:
+    name: vant-network
+    driver: bridge
