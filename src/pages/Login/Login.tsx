@@ -29,7 +29,7 @@ const Login = () => {
           email: data.email,
         })
 
-        history.push('/home')
+        history.push('/myVants')
       } catch (err) {
         alert('Não foi possível fazer o login')
       }

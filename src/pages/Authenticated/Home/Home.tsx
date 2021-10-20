@@ -9,7 +9,6 @@ const Home = () => {
   const [getCookie] = useCookies(['vant-auth'])
 
   return (
-    <AuthenticatedTemplate active='Meus Drones'>
       <S.Container>
         <S.Content>
           <S.Image src={DroneImage} />
@@ -17,7 +16,6 @@ const Home = () => {
           <S.StyledButton>Cadastrar drone</S.StyledButton>
         </S.Content>
       </S.Container>
-    </AuthenticatedTemplate>
   )
 }
 

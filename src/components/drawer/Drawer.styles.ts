@@ -18,7 +18,8 @@ export const ListItem = styled.div<{
     background: ${active ? 'rgba(0, 150, 136, 0.4)' : 'transparent'};
     display: flex;
     border-radius: 0.3rem;
-    padding: 0.5rem;
+    padding: 4px;
+    align-items: center;
     > p {
       margin-left: 2rem;
     }
