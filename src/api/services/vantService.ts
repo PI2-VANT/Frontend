@@ -3,13 +3,14 @@ import { api } from '../config/api'
 
 export type Response = {
   _id: string
-  email: string
+  userId: string
   name: string
-  password: string
+  registrationCode: string
+  __v: number
 }
 
-export const myVantList = async () => {
-  const { data }: AxiosResponse<Response> = await api.get('/myVants')
+export const myVantList = async (idUser: string) => {
+  const { data }: AxiosResponse<Response[]> = await api.get(`vant/my-vants/${idUser}`)
 
   return data
 }
