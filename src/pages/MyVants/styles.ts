@@ -7,5 +7,5 @@ export const Container = styled.div`
     grid-column-gap: 35px;
     grid-row-gap: 67px;
     justify-content: center;
-    padding: 78px 100px;
+    padding: 78px 50px;
 `
