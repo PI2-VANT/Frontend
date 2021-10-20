@@ -1,12 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { Typography } from '@material-ui/core'
-import { useCookies } from 'react-cookie'
-import * as S from './Home.styles'
-import DroneImage from '../../../assets/drone.png'
+import * as S from './EmptyVants.styles'
+import DroneImage from '../../assets/drone.png'
 
-const Home = () => {
-  const [getCookie] = useCookies(['vant-auth'])
-
+const EmptyVants = () => {
   return (
       <S.Container>
         <S.Content>
@@ -18,4 +15,4 @@ const Home = () => {
   )
 }
 
-export { Home }
+export { EmptyVants }

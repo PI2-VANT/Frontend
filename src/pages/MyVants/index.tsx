@@ -4,6 +4,7 @@ import { AuthenticatedTemplate } from '../../components/templates/authenticated/
 import { myVantList} from '../../api/services/vantService';
 import { Container } from './styles';
 import { useCookies } from 'react-cookie';
+import { EmptyVants } from '../../components/EmptyVants/EmptyVants';
 
 export type Response = {
   _id: string
@@ -26,16 +27,22 @@ const MyVants = () => {
         }
       }
       ListMyVants();
-      console.log(vants)
     },[]);
 
   return (
     <AuthenticatedTemplate active='Meus Drones'>
-        <Container >
+        
           {
-            vants?.map((vant, index) => <DroneCard name="Drone 1" onClick={()=>{}} key={index}/>)
+            vants?.length === 0 ? 
+              <EmptyVants /> :
+              ( 
+                <Container >
+                  {vants?.map((vant, index) => <DroneCard name={vant.name} onClick={()=>{}} key={index}/>)}
+                </Container>
+              )
+
           }
-        </Container>
+        
     </AuthenticatedTemplate>
 
   );
