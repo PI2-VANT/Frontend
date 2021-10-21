@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
 import { api } from '../config/api'
 
-export type Response = {
+export type ResponseMyVants = {
   _id: string
   userId: string
   name: string
@@ -9,8 +9,28 @@ export type Response = {
   __v: number
 }
 
-export const myVantList = async (idUser: string) => {
-  const { data }: AxiosResponse<Response[]> = await api.get(`vant/my-vants/${idUser}`)
+export type ResponseCreateVant = {
+  userId: string
+  name: string
+  registrationCode: string
+  _id: string
+  __v: number
+}
 
+export type paramsCreateVant = {
+  userId: string
+  name: string
+  registrationCode: string
+}
+
+export const myVantList = async (idUser: string) => {
+  const { data }: AxiosResponse<ResponseMyVants[]> = await api.get(`vant/my-vants/${idUser}`)
+
+  return data
+}
+
+export const Create = async (params: paramsCreateVant) => {
+  const { data }: AxiosResponse<ResponseCreateVant[]> = await api.post('vant', params)
+  
   return data
 }
