@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 
 export const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,6 +20,7 @@ export const MapContainer = styled.div`
     padding: 78px 100px;
 `
 export const DataFlyContant = styled.div`
+    margin-top: 5%;
     max-width: 70%;
     min-width: 700px;
     height: 40%;
