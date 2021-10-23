@@ -21,8 +21,8 @@ type Item = {
 
 const items: Item[] = [
   { name: 'Meus Drones', page: '/home', icon: <LocalAirportIcon /> },
-  { name: 'Novo Drone', page: '/vants', icon: <AddCircleIcon /> },
-  { name: 'Meus voos', page: '/flights', icon: <FlightTakeoffIcon /> },
+  { name: 'Novo Drone', page: '/myVants', icon: <AddCircleIcon /> },
+  { name: 'Meus voos', page: '/myFlights', icon: <FlightTakeoffIcon /> },
   { name: 'Perfil', page: '/profile', icon: <AccountCircleIcon /> },
   { name: 'Sair', icon: <PowerSettingsNewIcon /> },
 ]
