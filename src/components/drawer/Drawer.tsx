@@ -20,15 +20,15 @@ type Item = {
 }
 
 const items: Item[] = [
-  { name: 'Meus Drones', page: '/home', icon: <LocalAirportIcon /> },
-  { name: 'Novo Drone', page: '/myVants', icon: <AddCircleIcon /> },
-  { name: 'Meus voos', page: '/myFlights', icon: <FlightTakeoffIcon /> },
+  { name: 'Meus Vants', page: '/home', icon: <LocalAirportIcon /> },
+  { name: 'Novo Vant', page: '/vants', icon: <AddCircleIcon /> },
+  { name: 'Meus voos', page: '/flights', icon: <FlightTakeoffIcon /> },
   { name: 'Perfil', page: '/profile', icon: <AccountCircleIcon /> },
   { name: 'Sair', icon: <PowerSettingsNewIcon /> },
 ]
 
 type Props = {
-  active: 'Meus Drones' | 'Novo Drone' | 'Meus voos' | 'Perfil'
+  active: 'Meus Vants' | 'Novo Vant' | 'Meus voos' | 'Perfil' | 'Monitoramento'
 }
 
 export const Drawer = ({ active }: Props) => {

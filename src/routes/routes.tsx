@@ -4,6 +4,7 @@ import { Login } from '../pages/Login/Login'
 import { Signup } from '../pages/Signup/Signup'
 import { MyVants } from '../pages/MyVants'
 import { MyFlights } from '../pages/MyFlights'
+import { Monitoring } from '../pages/Monitoring'
 import PrivateRoute from './protectedRoutes'
 
 const Routes = () => {
@@ -12,6 +13,7 @@ const Routes = () => {
       <Route exact path="/" component={Login} />
       <Route path="/signup" component={Signup} />
       <PrivateRoute path="/home" component={Home} />
+      <PrivateRoute path="/monitoring" component={Monitoring} />
       <PrivateRoute path="/myVants" component={MyVants} />
       <PrivateRoute path="/myFlights" component={MyFlights} />
     </Switch>
