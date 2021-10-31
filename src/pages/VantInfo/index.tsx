@@ -18,7 +18,7 @@ const VantInfo = ({ idVant, nameVant }: VantInfoProps) => {
       nameVant: nameVant,
     },
     onSubmit: async (values) => {
-        alert('teste')
+        // alert('teste')
     },
   })
 
