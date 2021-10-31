@@ -17,6 +17,10 @@ export type ResponseCreateVant = {
   __v: number
 }
 
+type ResponseDeleteVant = {
+  deletedCount: number
+}
+
 export type paramsCreateVant = {
   userId: string
   name: string
@@ -32,5 +36,11 @@ export const myVantList = async (idUser: string) => {
 export const Create = async (params: paramsCreateVant) => {
   const { data }: AxiosResponse<ResponseCreateVant[]> = await api.post('vant', params)
   
+  return data
+}
+
+export const deleteVant = async (idVant: string) => {
+  const { data }: AxiosResponse<ResponseDeleteVant> = await api.delete(`vant/${idVant}`)
+
   return data
 }

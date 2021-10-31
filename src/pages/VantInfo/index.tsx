@@ -2,6 +2,7 @@ import { TextField } from '@material-ui/core'
 import * as S from './styles'
 
 import drone from '../../assets/drone.png'
+import { deleteVant } from '../../api/services/vantService'
 // import history from '../../routes/services/history'
 import { useFormik } from 'formik'
 
@@ -17,8 +18,13 @@ const VantInfo = ({ idVant, nameVant }: VantInfoProps) => {
       idVant: idVant,
       nameVant: nameVant,
     },
-    onSubmit: async (values) => {
-        // alert('teste')
+    onSubmit: async () => {
+        try {
+          await deleteVant(idVant);
+          alert('vant deletado com sucesso')
+        } catch (error) {
+          alert(error)
+        }
     },
   })
 
