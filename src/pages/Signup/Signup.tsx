@@ -53,7 +53,7 @@ const Signup = () => {
           email: data.email,
         })
 
-        history.push('/home')
+        history.push('/myVants')
       } catch (err) {
         alert('Não foi possível criar o usuário')
       }

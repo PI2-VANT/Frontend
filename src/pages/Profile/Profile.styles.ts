@@ -12,6 +12,7 @@ export const Container = styled.div`
 export const Logo = styled.img`
   max-width: 170px;
   align-self: center;
+  margin: 1rem 0;
 `
 
 export const StyledButton = styled(Button)`

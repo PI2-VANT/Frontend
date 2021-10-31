@@ -63,6 +63,7 @@ export const Profile = () => {
               fullWidth
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
+              sx={{margin: '1rem 0'}}
             />
             <TextField
               className='input'
