@@ -3,6 +3,7 @@ import { Home } from '../pages/Authenticated/Home/Home'
 import { Login } from '../pages/Login/Login'
 import { Signup } from '../pages/Signup/Signup'
 import { MyVants } from '../pages/MyVants'
+import { CreateVant } from '../pages/createVant'
 import PrivateRoute from './protectedRoutes'
 
 const Routes = () => {
@@ -12,6 +13,7 @@ const Routes = () => {
       <Route path="/signup" component={Signup} />
       <PrivateRoute path="/home" component={Home} />
       <PrivateRoute path="/myVants" component={MyVants} />
+      <PrivateRoute path="/createVant" component={CreateVant} />
     </Switch>
   )
 }
