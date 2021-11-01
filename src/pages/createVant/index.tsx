@@ -6,7 +6,7 @@ const CreateVant = () => {
 
 
   return (
-    <AuthenticatedTemplate active='Novo Drone'>
+    <AuthenticatedTemplate active='Novo Vant'>
         <CreateVantCard />
     </AuthenticatedTemplate>
 

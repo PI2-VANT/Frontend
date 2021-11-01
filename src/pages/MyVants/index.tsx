@@ -5,7 +5,6 @@ import { myVantList} from '../../api/services/vantService';
 import { Container } from './styles';
 import { useCookies } from 'react-cookie';
 import { EmptyVants } from '../../components/EmptyVants/EmptyVants';
-import history from '../../routes/services/history';
 
 export type Response = {
   _id: string
@@ -30,19 +29,14 @@ const MyVants = () => {
       ListMyVants();
     },[]);
 
-    const handleMonitoringVant = () => {
-      history.push('/monitoring', {})
-    }
-
   return (
     <AuthenticatedTemplate active='Meus Vants'>
-        
           {
             vants?.length === 0 ? 
               <EmptyVants /> :
               ( 
                 <Container >
-                  {vants?.map((vant, index) => <DroneCard name={vant.name} onClick={handleMonitoringVant} viewMore={()=>{}} key={index}/>)}
+                  {vants?.map((vant, index) => <DroneCard name={vant.name} registrationCode={vant._id} vantName={vant.name} key={index}/>)}
                 </Container>
               )
 

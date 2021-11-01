@@ -8,20 +8,24 @@ import history from '../../routes/services/history'
 import { useFormik } from 'formik'
 
 interface VantInfoProps{
-  idVant: string
-  nameVant: string
+  location:{
+    state:{
+      registrationCode: string,
+      vantName: string
+    }
+  }
 }
 
-const VantInfo = ({ idVant, nameVant }: VantInfoProps) => {
-
+const VantInfo = ({ location }: VantInfoProps) => {
+  const {registrationCode, vantName } = location.state;
   const formik = useFormik({
     initialValues: {
-      idVant: idVant,
-      nameVant: nameVant,
+      idVant: registrationCode,
+      vantName: vantName,
     },
     onSubmit: async () => {
         try {
-          await deleteVant(idVant);
+          await deleteVant(registrationCode);
           alert('vant deletado com sucesso')
           history.push('/myVants')
         } catch (error) {
@@ -41,20 +45,20 @@ const VantInfo = ({ idVant, nameVant }: VantInfoProps) => {
           <S.Logo src={drone} alt='vant-image' />
           <TextField
             className='input'
-            name='idVant'
+            name='registrationCode'
             variant='filled'
             label='Identificador Vant'
-            value={idVant}
+            value={registrationCode}
             fullWidth
             disabled
           />
           <TextField
             className='input'
-            name='nameVant'
+            name='vantName'
             variant='filled'
             label='Nome do Vant'
             placeholder='Digite o nome do vant'
-            value={nameVant}
+            value={vantName}
             fullWidth
             disabled
           />
