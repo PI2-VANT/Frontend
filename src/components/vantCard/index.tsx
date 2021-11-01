@@ -8,13 +8,14 @@ import { Container, Image, Title, CardContainer } from './styles';
 
 interface MyDronesProps{
     name: string;
+    viewMore: ()=> void;
     onClick: ()=> void
 }
 
-const DroneCard = ({ name, onClick}: MyDronesProps) => {
+const DroneCard = ({ name, viewMore, onClick}: MyDronesProps) => {
   return (
     <Container>
-        <Card>
+        <Card onClick={onClick}>
             <CardContainer>
                 <Title >
                     {name}
@@ -22,7 +23,7 @@ const DroneCard = ({ name, onClick}: MyDronesProps) => {
             <Image src={drone} alt='pulver-vant' />
             </CardContainer>
             <CardActions>
-            <Button onClick={onClick} size="small">VER MAIS</Button>
+            <Button onClick={viewMore} size="small">VER MAIS</Button>
             </CardActions>
         </Card>
     </Container>
