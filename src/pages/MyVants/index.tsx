@@ -35,7 +35,7 @@ const MyVants = () => {
     }
 
   return (
-    <AuthenticatedTemplate active='Meus Drones'>
+    <AuthenticatedTemplate active='Meus Vants'>
         
           {
             vants?.length === 0 ? 
