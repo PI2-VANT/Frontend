@@ -9,13 +9,25 @@ import { monitoringService, Response, baseValue} from '../../api/services/monito
 
 let cont = 0;
 
-const Monitoring = (registrationCode: string) => {
+interface MonitoringProps{
+  location:{
+    state:{
+      registrationCode: string
+    }
+  }
+}
+
+const Monitoring = ({location}: MonitoringProps) => {
+
       const [monitoringData, setMonitoringData] = useState<Response>(baseValue);
       const history = useHistory();
+      console.log(location.state.registrationCode)
      useEffect(()=> {
       const timer = setInterval(async () => {
         try {
-          const response = await monitoringService(registrationCode);
+          
+          // console.log()
+          const response = await monitoringService(location.state.registrationCode);
           if(response.data){
             setMonitoringData(response);
           }

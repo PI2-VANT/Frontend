@@ -5,10 +5,11 @@ import { Signup } from '../pages/Signup/Signup'
 import { MyVants } from '../pages/MyVants'
 import { MyFlights } from '../pages/MyFlights'
 import { Monitoring } from '../pages/Monitoring'
-import { Detail } from '../pages/Detail'
 import { VantInfo } from '../pages/VantInfo'
+import { CreateVant } from '../pages/createVant'
 import PrivateRoute from './protectedRoutes'
 import { Profile } from '../pages/Profile/Profile'
+import { Detail } from '../pages/Detail'
 
 const Routes = () => {
   return (
@@ -21,6 +22,7 @@ const Routes = () => {
       <PrivateRoute path='/myFlights' component={MyFlights} />
       <PrivateRoute path='/profile' component={Profile} />
       <PrivateRoute path="/vantInfo" component={VantInfo} />
+      <PrivateRoute path="/createVant" component={CreateVant} />
       <PrivateRoute path='/details' component={Detail} />
     </Switch>
   )

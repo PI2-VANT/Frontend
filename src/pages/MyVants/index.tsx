@@ -31,13 +31,12 @@ const MyVants = () => {
 
   return (
     <AuthenticatedTemplate active='Meus Vants'>
-        
           {
             vants?.length === 0 ? 
               <EmptyVants /> :
               ( 
                 <Container >
-                  {vants?.map((vant, index) => <DroneCard name={vant.name} onClick={()=>{}} key={index}/>)}
+                  {vants?.map((vant, index) => <DroneCard name={vant.name} registrationCode={vant._id} vantName={vant.name} key={index}/>)}
                 </Container>
               )
 
