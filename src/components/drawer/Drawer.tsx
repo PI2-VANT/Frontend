@@ -28,7 +28,7 @@ const items: Item[] = [
 ]
 
 type Props = {
-  active: 'Meus Vants' | 'Novo Vant' | 'Meus voos' | 'Perfil' | 'Monitoramento'
+  active: 'Meus Vants' | 'Novo Vant' | 'Meus voos' | 'Perfil' | 'Monitoramento' | 'Details'
 }
 
 export const Drawer = ({ active }: Props) => {

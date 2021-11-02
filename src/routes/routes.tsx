@@ -5,6 +5,7 @@ import { Signup } from '../pages/Signup/Signup'
 import { MyVants } from '../pages/MyVants'
 import { MyFlights } from '../pages/MyFlights'
 import { Monitoring } from '../pages/Monitoring'
+import { Detail } from '../pages/Detail'
 import { VantInfo } from '../pages/VantInfo'
 import PrivateRoute from './protectedRoutes'
 import { Profile } from '../pages/Profile/Profile'
@@ -20,6 +21,7 @@ const Routes = () => {
       <PrivateRoute path='/myFlights' component={MyFlights} />
       <PrivateRoute path='/profile' component={Profile} />
       <PrivateRoute path="/vantInfo" component={VantInfo} />
+      <PrivateRoute path='/details' component={Detail} />
     </Switch>
   )
 }

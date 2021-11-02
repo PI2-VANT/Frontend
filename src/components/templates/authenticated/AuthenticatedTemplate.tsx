@@ -3,7 +3,7 @@ import { Drawer } from '../../drawer/Drawer'
 import * as S from './AuthenticatedTemplate.styles'
 
 type Props = {
-  active: 'Meus Vants' | 'Novo Vant' | 'Meus voos' | 'Perfil' | 'Monitoramento'
+  active: 'Meus Vants' | 'Novo Vant' | 'Meus voos' | 'Perfil' | 'Monitoramento' | 'Details'
   children: ReactNode
 }
 
