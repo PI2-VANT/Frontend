@@ -36,7 +36,7 @@ const MyVants = () => {
               <EmptyVants /> :
               ( 
                 <Container >
-                  {vants?.map((vant, index) => <DroneCard name={vant.name} registrationCode={vant._id} vantName={vant.name} key={index}/>)}
+                  {vants?.map((vant, index) => <DroneCard name={vant.name} registrationCode={vant.registrationCode} vantName={vant.name} key={index}/>)}
                 </Container>
               )
 

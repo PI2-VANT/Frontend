@@ -58,7 +58,7 @@ const CreateVantCard = () => {
           variant='filled'
           label='Nome do Vant'
           placeholder='Digite o nome do vant'
-          value={formik.values.nameVant}
+          value={`${formik.values.nameVant}`}
           onChange={formik.handleChange}
           fullWidth
           error={formik.touched.nameVant && Boolean(formik.errors.nameVant)}
