@@ -27,6 +27,26 @@ export type paramsCreateVant = {
   registrationCode: string
 }
 
+export type ResponseHistory ={
+    vantName: string,
+    voos: [
+      {
+        _id: string,
+        start: boolean,
+        registrationCode: string,
+        date: string,
+        longitude: number,
+        latitude: number,
+        umidade: number,
+        temperatura: number,
+        pesticida: number,
+        bateria: number,
+        velocidade: number,
+        flyCode: number,
+        __v: number
+      }
+    ]
+}
 export const myVantList = async (idUser: string) => {
   const { data }: AxiosResponse<ResponseMyVants[]> = await api.get(`vant/my-vants/${idUser}`)
 
@@ -41,6 +61,12 @@ export const Create = async (params: paramsCreateVant) => {
 
 export const deleteVant = async (idVant: string) => {
   const { data }: AxiosResponse<ResponseDeleteVant> = await api.delete(`vant/${idVant}`)
+
+  return data
+}
+
+export const historyFlights = async (idUser: string) => {
+  const { data }: AxiosResponse<ResponseHistory[]> = await api.get(`vant/history/${idUser}`)
 
   return data
 }
