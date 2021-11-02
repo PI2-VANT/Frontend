@@ -11,9 +11,10 @@ interface MyDronesProps{
     name: string;
     vantName: string;
     registrationCode: string;
+    vantId: string
 }
 
-const DroneCard = ({ name, vantName, registrationCode}: MyDronesProps) => {
+const DroneCard = ({ name, vantName, registrationCode, vantId}: MyDronesProps) => {
     const handleMonitoringVant = (registrationCode: string) => {
         history.push('/monitoring', {
           registrationCode
@@ -36,7 +37,7 @@ const DroneCard = ({ name, vantName, registrationCode}: MyDronesProps) => {
                 <Image src={drone} alt='pulver-vant' />
             </CardContainer>
             <CardActions>
-            <Button onClick={() => handleViewMore(registrationCode, vantName)} size="small">VER MAIS</Button>
+            <Button onClick={() => handleViewMore(vantId, vantName)} size="small">VER MAIS</Button>
             </CardActions>
         </Card>
     </Container>
