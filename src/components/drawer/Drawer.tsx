@@ -22,7 +22,7 @@ type Item = {
 const items: Item[] = [
   { name: 'Meus Vants', page: '/myVants', icon: <LocalAirportIcon /> },
   { name: 'Novo Vant', page: '/createVant', icon: <AddCircleIcon /> },
-  { name: 'Meus voos', page: '/flights', icon: <FlightTakeoffIcon /> },
+  { name: 'Meus voos', page: '/myFlights', icon: <FlightTakeoffIcon /> },
   { name: 'Perfil', page: '/profile', icon: <AccountCircleIcon /> },
   { name: 'Sair', icon: <PowerSettingsNewIcon /> },
 ]
