@@ -9,6 +9,7 @@ import { VantInfo } from '../pages/VantInfo'
 import { CreateVant } from '../pages/createVant'
 import PrivateRoute from './protectedRoutes'
 import { Profile } from '../pages/Profile/Profile'
+import { Detail } from '../pages/Detail'
 
 const Routes = () => {
   return (
@@ -22,6 +23,7 @@ const Routes = () => {
       <PrivateRoute path='/profile' component={Profile} />
       <PrivateRoute path="/vantInfo" component={VantInfo} />
       <PrivateRoute path="/createVant" component={CreateVant} />
+      <PrivateRoute path='/details' component={Detail} />
     </Switch>
   )
 }

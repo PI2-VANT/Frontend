@@ -39,7 +39,6 @@ const MyVants = () => {
                   {vants?.map((vant, index) => <DroneCard name={vant.name} vantId={vant._id} registrationCode={vant.registrationCode} vantName={vant.name} key={index}/>)}
                 </Container>
               )
-
           }
         
     </AuthenticatedTemplate>
