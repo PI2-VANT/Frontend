@@ -56,6 +56,7 @@ const Login = () => {
           fullWidth
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
+          id="input-email"
         />
         <TextField
           className='input'
@@ -68,13 +69,14 @@ const Login = () => {
           fullWidth
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
+          id="input-password"
         />
-        <S.StyledButton variant='contained' fullWidth type='submit'>
+        <S.StyledButton variant='contained' fullWidth type='submit' id="btn-login">
           Login
         </S.StyledButton>
-        <S.Link variant='body2' align='center'>
+        <S.Link variant='body2' align='center' >
           Não possui conta,{' '}
-          <span onClick={() => history.push('/signup')}>Cadastrar-se</span>
+          <span onClick={() => history.push('/signup')} id="register">Cadastrar-se</span>
         </S.Link>
       </form>
     </S.Container>

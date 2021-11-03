@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable no-unused-vars */
 import {
   FilledInput,
@@ -7,7 +8,7 @@ import {
   TextField,
 } from '@material-ui/core'
 import { Visibility, VisibilityOff, ArrowBack } from '@material-ui/icons'
-import { useState, MouseEvent } from 'react'
+import React, { useState, MouseEvent } from 'react'
 import { useFormik } from 'formik'
 import { useCookies } from 'react-cookie'
 
@@ -86,6 +87,7 @@ const Signup = () => {
           onChange={formik.handleChange}
           error={formik.touched.name && Boolean(formik.errors.name)}
           helperText={formik.touched.name && formik.errors.name}
+          id="input-name"
         />
         <TextField
           name='email'
@@ -97,11 +99,11 @@ const Signup = () => {
           fullWidth
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
+          id="input-email"
         />
         <InputLabel htmlFor='passwordInput'>Senha</InputLabel>
         <FilledInput
           name='password'
-          id='passwordInput'
           type={showPassword ? 'text' : 'password'}
           fullWidth
           value={formik.values.password}
@@ -117,11 +119,11 @@ const Signup = () => {
               </IconButton>
             </InputAdornment>
           }
+          id="input-password"
         />
         <InputLabel htmlFor='repeatPasswordInput'>Repetir senha</InputLabel>
         <FilledInput
           name='confirmPassword'
-          id='repeatPasswordInput'
           type={showPassword ? 'text' : 'password'}
           fullWidth
           value={formik.values.confirmPassword}
@@ -140,6 +142,7 @@ const Signup = () => {
               </IconButton>
             </InputAdornment>
           }
+          id="input-confirm-password"
         />
         <S.StyledButton variant='contained' fullWidth type='submit'>
           Cadastrar

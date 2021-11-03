@@ -1,3 +1,4 @@
+import React from 'react'
 import { TextField } from '@material-ui/core'
 import * as S from './styles'
 
@@ -51,6 +52,7 @@ const CreateVantCard = () => {
           fullWidth
           error={formik.touched.idVant && Boolean(formik.errors.idVant)}
           helperText={formik.touched.idVant && formik.errors.idVant}
+          id="input-id-vant"
         />
         <TextField
           className='input'
@@ -58,11 +60,12 @@ const CreateVantCard = () => {
           variant='filled'
           label='Nome do Vant'
           placeholder='Digite o nome do vant'
-          value={`${formik.values.nameVant}`}
+          value={formik.values.nameVant}
           onChange={formik.handleChange}
           fullWidth
           error={formik.touched.nameVant && Boolean(formik.errors.nameVant)}
           helperText={formik.touched.nameVant && formik.errors.nameVant}
+          id="input-name-vant"
         />
         <S.StyledButton variant='contained' fullWidth type='submit'>
           Cadastrar
