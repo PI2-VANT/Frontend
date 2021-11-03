@@ -1,58 +1,141 @@
-import React  from 'react';
-import {Container,  ChartContant, ChartContainer, StyledButton} from './Detail.styles';
-import { Chart } from "react-google-charts";
+/* eslint-disable no-unused-vars */
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import {
+  Container,
+  GaugeContainer,
+  ChartContainer,
+  StyledButton,
+} from './Detail.styles'
+import { Chart } from 'react-google-charts'
 import Gauge from '../../components/charts/Gauge'
-import { AuthenticatedTemplate } from '../../components/templates/authenticated/AuthenticatedTemplate';
+import { AuthenticatedTemplate } from '../../components/templates/authenticated/AuthenticatedTemplate'
+import {
+  FlightDetailsResponse,
+  getVantDetailsService,
+} from '../../api/services/getVantDetails'
 
-const Detail = () => {
+type Props = {
+  location: {
+    state: {
+      RegistrationCode: string
+      flyCode: string
+    }
+  }
+}
+
+const Detail = ({ location }: Props) => {
+  const [data, setData] = useState<FlightDetailsResponse[]>([])
+  const array: any[] = [
+    ['x', 'Velocidade', 'Nível Pesticida', 'Bateria', 'Temperatura', 'Umidade'],
+  ]
+  useEffect(() => {
+    const getFlightData = async () => {
+      const response = await getVantDetailsService(
+        location.state.flyCode,
+        location.state.RegistrationCode
+      )
+      setData(response)
+    }
+    getFlightData()
+  }, [])
+
+  useMemo(() => {
+    data.forEach((aux) => {
+      array.push([
+        aux.date,
+        aux.velocidade,
+        aux.pesticida,
+        aux.bateria,
+        aux.temperatura,
+        aux.umidade,
+      ])
+    })
+  }, [data.length])
+
+  console.log(array)
+
+  const downloadCsv = () => {
+    let aux2: any
+    array.forEach(function (row) {
+      aux2 += row.join(',')
+      aux2 += '\n'
+    })
+    document.write(aux2)
+  }
 
   return (
     <AuthenticatedTemplate active='Details'>
-      <Container>
- 
-        <ChartContainer>
-          <Chart
-            width={'700px'}
-            height={'300px'}
-            chartType="LineChart"
-            loader={<div>Loading Chart</div>}
-            data={[
-              ['x', 'Velocidade', 'Nível Pesticida', 'Bateria', 'Temperatura', 'Umidade'],
-              ['8:50', 0, 100, 100, 25, 51],
-              ['8:55', 15, 100, 100, 25, 51],
-              ['9:00', 18, 95, 98, 25, 51],
-              ['9:05', 15, 95, 97, 25, 51],
-              ['9:10', 14, 94, 96, 27, 51],
-              ['9:15', 15, 93, 95,27, 51],
-              ['9:20', 18, 93, 94,25, 51],
-              ['9:25', 17, 85, 92,25, 51],
-              ['9:30', 14, 85, 89,25, 51],
-            ]}
-            options={{
-              hAxis: {
-                title: 'Time',
-                
-              },
-              series: {
-                1: { curveType: 'function' },
-              },
-            }}
-            rootProps={{ 'data-testid': '1' }}
-          />
-        </ChartContainer>
-        <ChartContant>
-          <Gauge value={0.51} simbol='%' colors={['#12e5fb']} levels={1} text="Umidade"/>
-          <Gauge value={0.16} simbol='Km/h' colors={['#06f18b']} levels={1} text="Velocidade Media"/>
-          <Gauge value={0.26} simbol='ºC' colors={['#06d28b','#fffd49', '#f41734']} levels={3} text="Temperatura"/>
-        </ChartContant>
-          <StyledButton>
-            Exportar CSV
-          </StyledButton>
-            
+      {data.length === 0 ? (
+        <div>...carregando</div>
+      ) : (
+        <Container>
+          <ChartContainer>
+            <Chart
+              width={'700px'}
+              height={'300px'}
+              chartType='LineChart'
+              loader={<div>Loading Chart</div>}
+              data={array}
+              options={{
+                hAxis: {
+                  title: 'Time',
+                },
+                series: {
+                  1: { curveType: 'function' },
+                },
+              }}
+              rootProps={{ 'data-testid': '1' }}
+            />
+          </ChartContainer>
+          <GaugeContainer>
+            <Gauge
+              value={
+                data.reduce(
+                  (acumulador, { umidade }) => acumulador + umidade,
+                  0
+                ) /
+                data.length /
+                100
+              }
+              simbol='%'
+              colors={['#12e5fb']}
+              levels={1}
+              text='Umidade'
+            />
+            <Gauge
+              value={
+                data.reduce(
+                  (acumulador, { velocidade }) => acumulador + velocidade,
+                  0
+                ) /
+                data.length /
+                100
+              }
+              simbol='Km/h'
+              colors={['#06f18b']}
+              levels={1}
+              text='Velocidade Media'
+            />
+            <Gauge
+              value={
+                data.reduce(
+                  (acumulador, { temperatura }) => acumulador + temperatura,
+                  0
+                ) /
+                data.length /
+                100
+              }
+              simbol='ºC'
+              colors={['#06d28b', '#fffd49', '#f41734']}
+              levels={3}
+              text='Temperatura'
+            />
+          </GaugeContainer>
+          <StyledButton onClick={downloadCsv}>Exportar CSV</StyledButton>
         </Container>
-
-     </AuthenticatedTemplate>
-  );
+      )}
+    </AuthenticatedTemplate>
+  )
 }
 
-export { Detail };
+export { Detail }

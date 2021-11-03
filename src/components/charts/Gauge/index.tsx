@@ -1,6 +1,6 @@
 import React from 'react';
 import GaugeChart from 'react-gauge-chart'
-import {Container} from './styles'
+import {Container, Text} from './styles'
 
 
 type Props= {
@@ -19,9 +19,9 @@ const Gauge = (props: Props) => {
         colors={props.colors}
         percent={props.value}
         textColor="#000000"
-        formatTextValue= {value => value + props.simbol}  
+        formatTextValue= {value => value + props.simbol}
       />
-      <h2>{props.text}</h2>
+      <Text>{props.text}</Text>
     </Container>
  );
   

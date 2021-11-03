@@ -42,7 +42,7 @@ export type ResponseHistory ={
         pesticida: number,
         bateria: number,
         velocidade: number,
-        flyCode: number,
+        flyCode: string,
         __v: number
       }
     ]
