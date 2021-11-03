@@ -30,14 +30,14 @@ const DroneCard = ({ name, vantName, registrationCode, vantId}: MyDronesProps) =
   return (
     <Container>
         <Card >
-            <CardContainer onClick={() => handleMonitoringVant(registrationCode)}>
+            <CardContainer onClick={() => handleMonitoringVant(registrationCode)} id="monitoring-vant">
                 <Title >
                     {name}
                 </Title>
                 <Image src={drone} alt='pulver-vant' />
             </CardContainer>
             <CardActions>
-            <Button onClick={() => handleViewMore(vantId, vantName)} size="small">VER MAIS</Button>
+            <Button onClick={() => handleViewMore(vantId, vantName)} size="small" id="btn-view-more">VER MAIS</Button>
             </CardActions>
         </Card>
     </Container>

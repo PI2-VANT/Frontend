@@ -51,6 +51,7 @@ const CreateVantCard = () => {
           fullWidth
           error={formik.touched.idVant && Boolean(formik.errors.idVant)}
           helperText={formik.touched.idVant && formik.errors.idVant}
+          id="input-id-vant"
         />
         <TextField
           className='input'
@@ -63,6 +64,7 @@ const CreateVantCard = () => {
           fullWidth
           error={formik.touched.nameVant && Boolean(formik.errors.nameVant)}
           helperText={formik.touched.nameVant && formik.errors.nameVant}
+          id="input-name-vant"
         />
         <S.StyledButton variant='contained' fullWidth type='submit'>
           Cadastrar

@@ -63,7 +63,7 @@ const VantInfo = ({ location }: VantInfoProps) => {
             disabled
           />
           <S.ActionContent>
-            <S.StyledButton variant='contained' type='submit'>
+            <S.StyledButton variant='contained' type='submit' id="btn-exclude">
               Excluir
             </S.StyledButton>
           </S.ActionContent>
