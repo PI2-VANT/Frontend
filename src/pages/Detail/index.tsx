@@ -13,6 +13,7 @@ import {
   FlightDetailsResponse,
   getVantDetailsService,
 } from '../../api/services/getVantDetails'
+import { CSVLink } from 'react-csv'
 
 type Props = {
   location: {
@@ -26,7 +27,7 @@ type Props = {
 const Detail = ({ location }: Props) => {
   const [data, setData] = useState<FlightDetailsResponse[]>([])
   const array: any[] = [
-    ['x', 'Velocidade', 'Nível Pesticida', 'Bateria', 'Temperatura', 'Umidade'],
+    ['Data', 'Velocidade', 'Nível Pesticida', 'Bateria', 'Temperatura', 'Umidade'],
   ]
   useEffect(() => {
     const getFlightData = async () => {
@@ -131,7 +132,9 @@ const Detail = ({ location }: Props) => {
               text='Temperatura'
             />
           </GaugeContainer>
-          <StyledButton onClick={downloadCsv}>Exportar CSV</StyledButton>
+          <CSVLink data={array} filename={`${location.state.flyCode}_${location.state.RegistrationCode}.csv`} style={{alignSelf: 'center'}}>
+            <StyledButton >Exportar CSV</StyledButton>
+          </CSVLink>
         </Container>
       )}
     </AuthenticatedTemplate>
